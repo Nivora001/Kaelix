@@ -32,7 +32,7 @@ jobs:
               Invoke-WebRequest $url -OutFile $path -ErrorAction Stop
               
               Write-Host "Installing network interface..."
-              $proc = Start-Process msiexec.exe -ArgumentList "/i "$path" /quiet /norestart" -Wait -PassThru
+              $proc = Start-Process msiexec.exe -ArgumentList "/i `"$path`" /quiet /norestart" -Wait -PassThru
               if ($proc.ExitCode -ne 0) { throw "Installation failed with exit code $($proc.ExitCode)" }
           }
           catch {
